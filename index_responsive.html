@@ -123,22 +123,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:60px;background:rgba
 .lnm{font-family:var(--mono);font-size:.63rem;color:var(--t2);flex:1}
 .lbar{flex:2;height:3px;background:var(--bg2);border-radius:2px;overflow:hidden}
 .lfil{height:100%;border-radius:2px}
-.sogrid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.thrp{padding:18px}
-.thrtit{font-family:var(--mono);font-size:.63rem;letter-spacing:2px;color:var(--r);margin-bottom:14px}
-.thrl{list-style:none}
-.tri{display:flex;align-items:center;gap:9px;padding:9px 0;border-bottom:1px solid rgba(255,0,60,.1);font-family:var(--mono);font-size:.68rem;color:var(--t2)}
-.tlv{font-size:.58rem;padding:2px 6px;border-radius:2px;letter-spacing:1px}
-.tlv.hi{background:rgba(255,0,60,.14);color:var(--r);border:1px solid rgba(255,0,60,.3)}
-.tlv.md{background:rgba(255,150,0,.14);color:#ff9600;border:1px solid rgba(255,150,0,.3)}
-.tlv.lo{background:rgba(0,255,136,.09);color:var(--g);border:1px solid var(--bn)}
+.sogrid{display:grid;grid-template-columns:1fr;gap:1.5rem}
 .cgrid2{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;padding:18px}
 .cert{background:rgba(0,229,255,.04);border:1px solid var(--bc);padding:12px 8px;border-radius:4px;text-align:center;transition:var(--ease)}
 .cert:hover{border-color:var(--c);box-shadow:var(--sc);transform:translateY(-2px)}
-.cico{font-size:1.4rem;margin-bottom:5px}
-.cnm{font-family:var(--mono);font-size:.58rem;color:var(--t2);line-height:1.5}
-.csrc{color:var(--t3);font-size:.52rem}
-#ncanv{width:100%;height:160px;border-radius:4px}
+.cert-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border-radius:4px;opacity:0;transition:opacity 0.3s;z-index:1}
+.cert:hover .cert-img{opacity:1}
+.cico{font-size:1.4rem;margin-bottom:5px;position:relative;z-index:2}
+.cnm{font-family:var(--mono);font-size:.58rem;color:var(--t2);line-height:1.5;position:relative;z-index:2}
+.csrc{color:var(--t3);font-size:.52rem;position:relative;z-index:2}
 .acts{padding:14px}
 .aclbl{font-family:var(--mono);font-size:.63rem;color:var(--t2);letter-spacing:2px;margin-bottom:10px}
 .aci{display:flex;gap:9px;padding:7px 0;border-bottom:1px solid var(--bn);font-family:var(--mono);font-size:.67rem;color:var(--t2);animation:fadeUp .4s ease}
@@ -164,7 +157,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:60px;background:rgba
 .finp:focus,.ftxt:focus{border-color:var(--g);box-shadow:var(--sg);background:rgba(0,255,136,.05)}
 .ftxt{resize:vertical;min-height:110px}
 .fgrp{margin-bottom:18px}
-.clnk{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--bn);text-decoration:none;transition:var(--ease)}
+.clnk{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--bn);text-decoration:none;transition:var(--ease);cursor:pointer}
 .clnk:hover{padding-left:8px}
 .cico2{width:34px;height:34px;border:1px solid var(--bn);display:flex;align-items:center;justify-content:center;font-size:.95rem;border-radius:2px;flex-shrink:0;transition:var(--ease)}
 .clnk:hover .cico2{border-color:var(--g);box-shadow:var(--sg)}
@@ -233,15 +226,24 @@ footer{position:relative;z-index:2;background:var(--bg2);border-top:1px solid va
   .shd{margin-bottom:2rem}
   .stag{display:none}
   .stit{font-size:clamp(1rem,4.5vw,1.5rem)}
+  .panel[style*="display:flex"]{flex-direction:column;align-items:center!important;text-align:center}
+  .panel[style*="display:flex"] div[style*="flex-shrink:0"]{margin-bottom:1.5rem}
+  .panel[style*="display:flex"] .tjson{width:100%}
+  .panel[style*="display:flex"] div[style*="width:150px"]{width:120px!important;height:120px!important;margin:0 auto}
   .skgrid{grid-template-columns:1fr}
   .pgrid{grid-template-columns:1fr}
   .ptit{font-size:.9rem}
   .pdesc{font-size:.82rem}
+  .pthumb{height:120px!important}
+  .pthumb div[style*="font-size:3rem"]{font-size:2.5rem!important}
   .tjson{font-size:.67rem;padding:12px}
   #cgrid{grid-template-columns:repeat(18,1fr);gap:1.5px}
   .sogrid{grid-template-columns:1fr}
   .cgrid2{grid-template-columns:repeat(2,1fr);gap:6px}
-  #ncanv{height:120px}
+  .cert-img{width:100%;height:100%;object-fit:cover;border-radius:4px}
+  .cico{font-size:1.2rem}
+  .cnm{font-size:.55rem}
+  .csrc{font-size:.48rem}
   .twrap{padding:40px 1rem}
   .tbody{height:190px;font-size:.7rem}
   .tipro,.tinp{font-size:.7rem}
@@ -278,7 +280,7 @@ footer{position:relative;z-index:2;background:var(--bg2);border-top:1px solid va
     <li><a href="#skills">SKILLS</a></li>
     <li><a href="#projects">PROJECTS</a></li>
     <li><a href="#github">GITHUB</a></li>
-    <li><a href="#security">SECURITY</a></li>
+    <li><a href="#CERTIFICATIONS">CERTIFICATIONS</a></li>
     <li><a href="#contact">CONTACT</a></li>
   </ul>
   <div class="nacts">
@@ -294,7 +296,7 @@ footer{position:relative;z-index:2;background:var(--bg2);border-top:1px solid va
   <li><a href="#skills">SKILLS</a></li>
   <li><a href="#projects">PROJECTS</a></li>
   <li><a href="#github">GITHUB</a></li>
-  <li><a href="#security">SECURITY</a></li>
+  <li><a href="#CERTIFICATIONS">CERTIFICATIONS</a></li>
   <li><a href="#contact">CONTACT</a></li>
 </ul>
 
@@ -310,6 +312,7 @@ footer{position:relative;z-index:2;background:var(--bg2);border-top:1px solid va
       <a href="#projects" class="btn btng">▶ VIEW PROJECTS</a>
       <a href="#contact" class="btn btno">⊕ CONTACT ME</a>
       <a href="https://github.com/Nithish0333" target="_blank" class="btn btno">⬡ GITHUB</a>
+      <a href="cv.html" target="_blank" class="btn btng">📄 VIEW CV</a>
     </div>
   </div>
 </section>
@@ -328,32 +331,44 @@ footer{position:relative;z-index:2;background:var(--bg2);border-top:1px solid va
   <div class="agrid ai">
     <div class="panel">
       <div class="ph"><div class="pd" style="background:#ff5f57"></div><div class="pd" style="background:#ffbd2e"></div><div class="pd" style="background:#28c840"></div><span>profile.json</span></div>
-      <div class="tjson">
-        <div><span class="tp">{</span></div>
-        <div style="padding-left:18px">
-          <div><span class="tk">"name"</span>: <span class="ts">"Nithish R"</span>,</div>
-          <div><span class="tk">"role"</span>: <span class="ts">"Backend Engineer &amp; Security"</span>,</div>
-          <div><span class="tk">"education"</span>: <span class="ts">"BCA Student"</span>,</div>
-          <div><span class="tk">"location"</span>: <span class="ts">"Remote"</span>,</div>
-          <div><span class="tk">"focus"</span>: [</div>
-          <div style="padding-left:18px"><span class="ts">"Backend Architecture"</span>,<br><span class="ts">"AI / LLM Integration"</span>,<br><span class="ts">"Cybersecurity"</span>,<br><span class="ts">"Scalable Systems"</span></div>
-          <div>],</div>
-          <div><span class="tk">"email"</span>: <span class="ts">"<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a1cfc8d5c9c8d2c9c996979298e1c6ccc0c8cd8fc2cecc">[email&#160;protected]</a>"</span>,</div>
-          <div><span class="tk">"status"</span>: <span class="ts">"open_to_work"</span>,</div>
-          <div><span class="tk">"coffee_level"</span>: <span class="tn">99</span></div>
+      <div style="display:flex;gap:2rem;align-items:flex-start;padding:25px">
+        <div style="flex-shrink:0">
+          <div style="width:150px;height:150px;border-radius:10px;background:linear-gradient(135deg,var(--g),var(--c));border:2px solid var(--bn);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.8rem;color:var(--bg2);text-align:center;position:relative;overflow:hidden;box-shadow:var(--sg)">
+            <img src="myimage.jpeg" alt="Profile" style="width:100%;height:100%;object-fit:cover;border-radius:8px;position:absolute;inset:0;z-index:1" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=&quot;position:relative;z-index:1&quot;>PHOTO</span><div style=&quot;position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(0,0,0,.03) 10px,rgba(0,0,0,.03) 20px)&quot;></div>'">
+          </div>
         </div>
-        <div><span class="tp">}</span></div>
+        <div class="tjson" style="flex:1;padding:15px 0">
+          <div><span class="tp">{</span></div>
+          <div style="padding-left:20px">
+            <div><span class="tk">"name"</span>: <span class="ts">"Nithish R"</span>,</div>
+            <div><span class="tk">"role"</span>: <span class="ts">"Backend Engineer &amp; Security"</span>,</div>
+            <div><span class="tk">"education"</span>: <span class="ts">"BCA Student"</span>,</div>
+            <div><span class="tk">"location"</span>: <span class="ts">"Remote"</span>,</div>
+            <div><span class="tk">"experience"</span>: <span class="ts">"1+ Years"</span>,</div>
+            <div><span class="tk">"availability"</span>: <span class="ts">"Open to opportunities"</span>,</div>
+            <div><span class="tk">"focus"</span>: [</div>
+            <div style="padding-left:20px"><span class="ts">"Backend Architecture"</span>,<br><span class="ts">"AI / LLM Integration"</span>,<br><span class="ts">"Cybersecurity"</span>,<br><span class="ts">"Scalable Systems"</span>,<br><span class="ts">"API Development"</span></div>
+            <div>],</div>
+            <div><span class="tk">"email"</span>: <span class="ts">"<a href="mailto:nithishh7639@gmail.com" style="color:var(--c);text-decoration:none;cursor:pointer">nithishh7639@gmail.com</a>"</span>,</div>
+            <div><span class="tk">"status"</span>: <span class="ts">"open_to_work"</span>,</div>
+            <div><span class="tk">"coffee_level"</span>: <span class="tn">99</span></div>
+          </div>
+          <div><span class="tp">}</span></div>
+        </div>
       </div>
     </div>
     <div class="panel">
-      <div class="ph"><div class="pd" style="background:var(--g)"></div><span>OPERATOR_BRIEF</span></div>
+      <div class="ph"><div class="pd" style="background:#ff5f57"></div><div class="pd" style="background:#ffbd2e"></div><div class="pd" style="background:#28c840"></div><span>operator_brief.txt</span></div>
       <div class="atxt">
         <p>I'm a <strong>BCA student</strong> with a strong passion for backend development, AI tools, and cybersecurity. I enjoy building <strong>scalable and secure systems</strong> while continuously exploring modern technologies.</p>
         <p>My interest lies in solving real-world problems through <strong>efficient backend architectures</strong> and intelligent solutions — leveraging AI tools, LLM integrations, and RAG systems to build smarter applications.</p>
         <p>I aim to grow as a professional developer by combining <strong>innovation, security, and performance</strong> in everything I create. Always eager to learn, experiment, and push the limits of what's possible.</p>
+        <p><strong>Core Philosophy:</strong> Code should be clean, secure, and maintainable. I believe in writing documentation-first solutions and following security best practices from the ground up.</p>
+        <p><strong>Current Focus:</strong> Building production-ready applications with modern backend frameworks, implementing robust authentication systems, and exploring the intersection of AI and cybersecurity.</p>
         <div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap">
           <span style="font-family:var(--mono);font-size:.63rem;color:var(--g)">◈ Available for freelance</span>
           <span style="font-family:var(--mono);font-size:.63rem;color:var(--c)">◈ Open to full-time roles</span>
+          <span style="font-family:var(--mono);font-size:.63rem;color:var(--p)">◈ Remote preferred</span>
         </div>
       </div>
     </div>
@@ -362,30 +377,35 @@ footer{position:relative;z-index:2;background:var(--bg2);border-top:1px solid va
 
 <section class="sec" id="skills">
   <div class="shd"><div class="stag">02</div><h2 class="stit ai">TECH_STACK</h2><div class="sline"></div></div>
-  <div class="skgrid ai">
+  <div class="skgrid ai" style="grid-template-columns:repeat(2,1fr)">
     <div class="panel" style="padding:22px">
       <div class="sktit"><span>⚙</span> FRONTEND &amp; BACKEND</div>
-      <div class="ski"><div class="skinm"><span>React / Bootstrap</span><span class="skipc">82%</span></div><div class="skibar"><div class="skifill" data-w="82"></div></div></div>
-      <div class="ski"><div class="skinm"><span>Django REST Framework</span><span class="skipc">88%</span></div><div class="skibar"><div class="skifill" data-w="88"></div></div></div>
-      <div class="ski"><div class="skinm"><span>Node.js + Express.js</span><span class="skipc">85%</span></div><div class="skibar"><div class="skifill" data-w="85"></div></div></div>
-      <div class="ski"><div class="skinm"><span>FastAPI (Python)</span><span class="skipc">80%</span></div><div class="skibar"><div class="skifill" data-w="80"></div></div></div>
-      <div class="ski"><div class="skinm"><span>Next.js</span><span class="skipc">72%</span></div><div class="skibar"><div class="skifill" data-w="72"></div></div></div>
+      <div class="ski"><div class="skinm"><span>React</span><span class="skipc">82%</span></div><div class="skibar"><div class="skifill" data-w="82"></div></div></div>
+      <div class="ski"><div class="skinm"><span>Bootstrap</span><span class="skipc">82%</span></div><div class="skibar"><div class="skifill" data-w="82"></div></div></div>
+      <div class="ski"><div class="skinm"><span>Django with REST</span><span class="skipc">88%</span></div><div class="skibar"><div class="skifill" data-w="88"></div></div></div>
+      <div class="ski"><div class="skinm"><span>Node.js with Express.js</span><span class="skipc">85%</span></div><div class="skibar"><div class="skifill" data-w="85"></div></div></div>
     </div>
     <div class="panel" style="padding:22px">
-      <div class="sktit"><span>🤖</span> AI / LLM TOOLS</div>
-      <div class="ski"><div class="skinm"><span>OpenAI API / LLM Integration</span><span class="skipc">85%</span></div><div class="skibar"><div class="skifill" data-w="85"></div></div></div>
-      <div class="ski"><div class="skinm"><span>RAG (LangChain + ChromaDB)</span><span class="skipc">80%</span></div><div class="skibar"><div class="skifill" data-w="80"></div></div></div>
+      <div class="sktit"><span>🛢</span> DATABASE</div>
+      <div class="ski"><div class="skinm"><span>MySQL</span><span class="skipc">85%</span></div><div class="skibar"><div class="skifill" data-w="85"></div></div></div>
+      <div class="ski"><div class="skinm"><span>PostgreSQL</span><span class="skipc">85%</span></div><div class="skibar"><div class="skifill" data-w="85"></div></div></div>
+      <div class="ski"><div class="skinm"><span>MongoDB</span><span class="skipc">83%</span></div><div class="skibar"><div class="skifill" data-w="83"></div></div></div>
+    </div>
+    <div class="panel" style="padding:22px">
+      <div class="sktit"><span>🔧</span> GENERAL</div>
+      <div class="ski"><div class="skinm"><span>Python</span><span class="skipc">88%</span></div><div class="skibar"><div class="skifill" data-w="88"></div></div></div>
+      <div class="ski"><div class="skinm"><span>Bash / Linux</span><span class="skipc">82%</span></div><div class="skibar"><div class="skifill" data-w="82"></div></div></div>
+      <div class="ski"><div class="skinm"><span>Docker</span><span class="skipc">80%</span></div><div class="skibar"><div class="skifill" data-w="80"></div></div></div>
+      <div class="ski"><div class="skinm"><span>Git</span><span class="skipc">90%</span></div><div class="skibar"><div class="skifill" data-w="90"></div></div></div>
+    </div>
+    <div class="panel" style="padding:22px">
+      <div class="sktit"><span>🤖</span> AI / TOOLS</div>
       <div class="ski"><div class="skinm"><span>Prompt Engineering</span><span class="skipc">88%</span></div><div class="skibar"><div class="skifill" data-w="88"></div></div></div>
+      <div class="ski"><div class="skinm"><span>AI Debugging &amp; Code Assist</span><span class="skipc">85%</span></div><div class="skibar"><div class="skifill" data-w="85"></div></div></div>
+      <div class="ski"><div class="skinm"><span>OpenAI API / LLM Integration</span><span class="skipc">85%</span></div><div class="skibar"><div class="skifill" data-w="85"></div></div></div>
       <div class="ski"><div class="skinm"><span>Chatbot Development</span><span class="skipc">83%</span></div><div class="skibar"><div class="skifill" data-w="83"></div></div></div>
       <div class="ski"><div class="skinm"><span>AI Workflow &amp; Automation</span><span class="skipc">78%</span></div><div class="skibar"><div class="skifill" data-w="78"></div></div></div>
-    </div>
-    <div class="panel" style="padding:22px">
-      <div class="sktit"><span>🛢</span> DATABASE &amp; DEVOPS</div>
-      <div class="ski"><div class="skinm"><span>PostgreSQL / MySQL</span><span class="skipc">85%</span></div><div class="skibar"><div class="skifill" data-w="85"></div></div></div>
-      <div class="ski"><div class="skinm"><span>MongoDB</span><span class="skipc">83%</span></div><div class="skibar"><div class="skifill" data-w="83"></div></div></div>
-      <div class="ski"><div class="skinm"><span>Docker</span><span class="skipc">80%</span></div><div class="skibar"><div class="skifill" data-w="80"></div></div></div>
-      <div class="ski"><div class="skinm"><span>Linux / Bash</span><span class="skipc">82%</span></div><div class="skibar"><div class="skifill" data-w="82"></div></div></div>
-      <div class="ski"><div class="skinm"><span>Git / GitHub</span><span class="skipc">90%</span></div><div class="skibar"><div class="skifill" data-w="90"></div></div></div>
+      <div class="ski"><div class="skinm"><span>RAG (Retrieval-Augmented Gen)</span><span class="skipc">80%</span></div><div class="skibar"><div class="skifill" data-w="80"></div></div></div>
     </div>
   </div>
 </section>
@@ -396,6 +416,10 @@ footer{position:relative;z-index:2;background:var(--bg2);border-top:1px solid va
     <div class="panel pcard">
       <div class="pinn">
         <div class="pmeta"><span class="ptyp">E-COMMERCE</span><span class="pyr">2024</span></div>
+        <div class="pthumb" style="width:100%;height:160px;background:linear-gradient(135deg,rgba(0,255,136,.1),rgba(0,229,255,.1));border-radius:6px;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid var(--bn)">
+          <div style="font-size:3rem;color:var(--g);opacity:.6">🛒</div>
+          <div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(0,0,0,.02) 10px,rgba(0,0,0,.02) 20px)"></div>
+        </div>
         <h3 class="ptit">COOKIECRAVE</h3>
         <p class="pdesc">Smart full-stack e-commerce platform for buying and selling cookies. Features an AI-powered chatbot, personalized product recommendations, secure transactions, and a scalable backend architecture.</p>
         <div class="tags"><span class="tag">React</span><span class="tag">Bootstrap</span><span class="tag">Django REST</span><span class="tag">PostgreSQL</span><span class="tag">AI Chatbot</span></div>
@@ -405,6 +429,10 @@ footer{position:relative;z-index:2;background:var(--bg2);border-top:1px solid va
     <div class="panel pcard">
       <div class="pinn">
         <div class="pmeta"><span class="ptyp" style="color:var(--c);border-color:var(--bc)">REAL-TIME APP</span><span class="pyr">2024</span></div>
+        <div class="pthumb" style="width:100%;height:160px;background:linear-gradient(135deg,rgba(0,229,255,.1),rgba(0,102,255,.1));border-radius:6px;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid var(--bn)">
+          <div style="font-size:3rem;color:var(--c);opacity:.6">💬</div>
+          <div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(0,0,0,.02) 10px,rgba(0,0,0,.02) 20px)"></div>
+        </div>
         <h3 class="ptit">CIPHERCHAT</h3>
         <p class="pdesc">Real-time messaging web application with live WebSocket communication via Socket.io. Enables instant messaging with efficient data handling, scalable architecture, and smooth interactive chat experience.</p>
         <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">MongoDB</span><span class="tag">Socket.io</span></div>
@@ -414,6 +442,10 @@ footer{position:relative;z-index:2;background:var(--bg2);border-top:1px solid va
     <div class="panel pcard">
       <div class="pinn">
         <div class="pmeta"><span class="ptyp" style="color:var(--p);border-color:rgba(191,0,255,.3)">DEV PLATFORM</span><span class="pyr">2024</span></div>
+        <div class="pthumb" style="width:100%;height:160px;background:linear-gradient(135deg,rgba(191,0,255,.1),rgba(0,255,136,.1));border-radius:6px;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid var(--bn)">
+          <div style="font-size:3rem;color:var(--p);opacity:.6">👨‍💻</div>
+          <div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(0,0,0,.02) 10px,rgba(0,0,0,.02) 20px)"></div>
+        </div>
         <h3 class="ptit">DEVARENA</h3>
         <p class="pdesc">Full-stack developer learning platform with an in-browser code editor, quiz-based challenges, structured learning paths, and daily streak tracking. Helps developers practice, track progress, and grow consistently.</p>
         <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">MongoDB</span><span class="tag">Code Editor</span></div>
@@ -423,6 +455,10 @@ footer{position:relative;z-index:2;background:var(--bg2);border-top:1px solid va
     <div class="panel pcard">
       <div class="pinn">
         <div class="pmeta"><span class="ptyp" style="color:#ff9600;border-color:rgba(255,150,0,.3)">AI / RAG</span><span class="pyr">2024</span></div>
+        <div class="pthumb" style="width:100%;height:160px;background:linear-gradient(135deg,rgba(255,150,0,.1),rgba(0,229,255,.1));border-radius:6px;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid var(--bn)">
+          <div style="font-size:3rem;color:#ff9600;opacity:.6">🤖</div>
+          <div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(0,0,0,.02) 10px,rgba(0,0,0,.02) 20px)"></div>
+        </div>
         <h3 class="ptit">SECURE AI KNOWLEDGE PLATFORM</h3>
         <p class="pdesc">Enterprise-grade RAG-based AI platform using vector embeddings and semantic search for intelligent, context-aware responses from custom knowledge sources. Focuses on secure data handling and high-performance retrieval.</p>
         <div class="tags"><span class="tag">Next.js</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">ChromaDB</span><span class="tag">OpenAI</span><span class="tag">LangChain</span><span class="tag">Redis</span></div>
@@ -455,28 +491,14 @@ footer{position:relative;z-index:2;background:var(--bg2);border-top:1px solid va
   </div>
 </section>
 
-<section class="sec" id="security">
-  <div class="shd"><div class="stag">05</div><h2 class="stit ai">SOC_OPERATIONS</h2><div class="sline"></div></div>
+<section class="sec" id="CERTIFICATIONS">
+  <div class="shd"><div class="stag">05</div><h2 class="stit ai">CERTIFICATIONS</h2><div class="sline"></div></div>
   <div class="sogrid ai">
-    <div class="panel">
-      <div class="ph"><div class="pd" style="background:var(--r)"></div><span style="color:var(--r)">LIVE_THREAT_FEED</span></div>
-      <div class="thrp">
-        <div class="thrtit">⚠ ACTIVE THREAT INTELLIGENCE</div>
-        <ul class="thrl">
-          <li class="tri"><span class="tlv hi">HIGH</span><span>SQL injection attempt — 192.168.x.x</span></li>
-          <li class="tri"><span class="tlv md">MED</span><span>Brute force on /auth endpoint</span></li>
-          <li class="tri"><span class="tlv hi">HIGH</span><span>XSS payload in user-agent header</span></li>
-          <li class="tri"><span class="tlv lo">LOW</span><span>Anomalous API call frequency</span></li>
-          <li class="tri"><span class="tlv md">MED</span><span>Unauthorized access to /admin</span></li>
-        </ul>
-      </div>
-      <div style="padding:0 18px 16px"><canvas id="ncanv"></canvas></div>
-    </div>
     <div>
       <div class="panel" style="margin-bottom:1.5rem">
-        <div class="ph"><div class="pd" style="background:var(--c)"></div><span>CERTIFICATIONS &amp; BADGES</span></div>
+        <div class="ph"><div class="pd" style="background:var(--c)"></div><span>CERTIFICATIONS</span></div>
         <div class="cgrid2">
-          <div class="cert"><div class="cico">🎨</div><div class="cnm">Frontend Dev<br><span class="csrc">MindLuster</span></div></div>
+          <div class="cert" style="cursor:pointer;position:relative" onclick="window.open('certifiactes/frontend.jpeg', '_blank')"><div class="cico">🎨</div><div class="cnm">Frontend Dev<br><span class="csrc">MindLuster</span></div><img src="certifiactes/frontend.jpeg" alt="Frontend Certificate" class="cert-img"></div>
           <div class="cert"><div class="cico">🏗</div><div class="cnm">Solution Arch<br><span class="csrc">Forage</span></div></div>
           <div class="cert"><div class="cico">🤖</div><div class="cnm">AI &amp; Gen AI<br><span class="csrc">Udemy</span></div></div>
           <div class="cert"><div class="cico">🐍</div><div class="cnm">Django Full Stack<br><span class="csrc">Udemy</span></div></div>
@@ -531,8 +553,8 @@ footer{position:relative;z-index:2;background:var(--bg2);border-top:1px solid va
       <div class="ph"><div class="pd" style="background:var(--c)"></div><span>DIRECT_CHANNELS</span></div>
       <div style="padding:24px">
         <div style="font-family:var(--mono);font-size:.65rem;color:var(--c);letter-spacing:2px;margin-bottom:20px">// CONNECT DIRECTLY</div>
-        <a href="/cdn-cgi/l/email-protection#fb95928f9392889393cccdc8c2bb9c969a9297d5989496" class="clnk" style="color:inherit">
-          <div class="cico2">✉</div><div><div class="clbl2">EMAIL</div><div class="cval"><span class="__cf_email__" data-cfemail="84eaedf0ecedf7ececb3b2b7bdc4e3e9e5ede8aae7ebe9">[email&#160;protected]</span></div></div>
+        <a href="mailto:nithishh7639@gmail.com?subject=Portfolio%20Inquiry" class="clnk" style="color:inherit;pointer-events:auto;">
+          <div class="cico2">✉</div><div><div class="clbl2">EMAIL</div><div class="cval">nithishh7639@gmail.com</div></div>
         </a>
         <a href="https://github.com/Nithish0333" target="_blank" class="clnk" style="color:inherit">
           <div class="cico2">⬡</div><div><div class="clbl2">GITHUB</div><div class="cval">github.com/Nithish0333</div></div>
@@ -651,21 +673,6 @@ document.querySelectorAll('.ai').forEach(el=>obs.observe(el));
   }
 })();
 
-// NETWORK CANVAS
-(function(){
-  const canvas=document.getElementById('ncanv');if(!canvas)return;
-  const ctx=canvas.getContext('2d');
-  function rsz(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight||160;}
-  rsz();window.addEventListener('resize',rsz);
-  const nodes=Array.from({length:20},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5,r:2+Math.random()*2,color:Math.random()>.75?'#ff003c':Math.random()>.5?'#00ff88':'#00e5ff'}));
-  (function draw(){
-    requestAnimationFrame(draw);ctx.clearRect(0,0,canvas.width,canvas.height);
-    nodes.forEach(n=>{n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>canvas.width)n.vx*=-1;if(n.y<0||n.y>canvas.height)n.vy*=-1;});
-    for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){const dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<90){ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.strokeStyle=`rgba(0,255,136,${.18*(1-d/90)})`;ctx.lineWidth=.6;ctx.stroke();}}
-    nodes.forEach(n=>{ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle=n.color;ctx.fill();});
-  })();
-})();
-
 // ACTIVITY STREAM
 (function(){
   const stream=document.getElementById('actStream');
@@ -681,7 +688,7 @@ document.querySelectorAll('.ai').forEach(el=>obs.observe(el));
   const cmds={
     help:`Available commands:\n  whoami    — Display identity\n  skills    — List tech stack\n  projects  — Show projects\n  contact   — Get contact info\n  certs     — Show certifications\n  clear     — Clear terminal\n  hack      — Try it... 😏\n  matrix    — Easter egg\n  banner    — ASCII banner`,
     whoami:`NITHISH R\nRole: Backend Engineer & Security Enthusiast\nEducation: BCA Student\nLocation: Remote\nTimezone: UTC+5:30 (IST)\nStatus: Open to work & collaborations`,
-    skills:`Frontend:  React, Bootstrap, Next.js\nBackend:   Django REST, Node.js + Express.js, FastAPI\nDatabase:  PostgreSQL, MySQL, MongoDB\nAI/LLM:    OpenAI API, LangChain, RAG, Prompt Engineering\nGeneral:   Python, Bash, Linux, Docker, Git`,
+    skills:`FRONTEND:React,Bootstrap\nBACKEND:Django with rest,Node js with Express.js\nDATABASE:Mysql,Postgresql,Mongodb\nGENERAL:Python,Bash,Linux,Docker,Git\nAI/TOOLS:Prompt Engineering,AI Debugging & Code Assist Tools,OpenAI API / LLM Integration,Chatbot Development,AI Workflow & Automation Tools,RAG (Retrieval-Augmented Generation)`,
     projects:`[1] COOKIECRAVE          — Smart E-Commerce (React + Django REST + AI)\n[2] CIPHERCHAT           — Real-Time Messaging (Node.js + Socket.io)\n[3] DEVARENA             — Dev Learning Platform (React + Node.js)\n[4] SECURE AI PLATFORM   — RAG-Based AI (FastAPI + LangChain + ChromaDB)`,
     contact:`Email:    nithishh7639@gmail.com\nGitHub:   github.com/Nithish0333\nLinkedIn: linkedin.com/in/nithish76`,
     certs:`1. Frontend Development      — MindLuster\n2. Solution Architecture      — Forage\n3. AI & Generative AI         — Udemy\n4. Django Full Stack          — Udemy\n5. Docker                     — Udemy\n6. Master MongoDB             — Udemy\n7. PostgreSQL for Developers  — Udemy\n8. Master Node.js             — Udemy\n9. Artificial Intelligence    — IFOCUS`,
